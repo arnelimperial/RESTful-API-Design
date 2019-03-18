@@ -11,12 +11,17 @@ exports.authenticate = (email, password) => {
       // Match Password
       bcrypt.compare(password, user.password, (err, isMatch) => {
         if (err) throw err;
-        if (!isMatch) throw 'Password did not match';
-        resolve(user);
+        if (isMatch){
+          resolve(user);
+        }else{
+          reject('Authentication Failed!');
+        }
+      
       });
-    } catch (err) {
-      // Email not found or password did not match
-      reject('Authentication Failed');
+    
+    }catch(err){
+      reject('Authentication Failed!');
     }
   });
-};
+
+}
