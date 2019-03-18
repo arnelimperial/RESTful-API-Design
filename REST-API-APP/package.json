@@ -1,0 +1,24 @@
+{
+  "name": "rest-api-app",
+  "version": "1.0.0",
+  "description": "REST API for Service Provider.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "Arnel Imperial",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.4.19",
+    "mongoose-timestamp": "^0.6.0",
+    "restify": "^8.1.1",
+    "restify-errors": "^7.0.0",
+    "restify-jwt-community": "^1.0.11"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
