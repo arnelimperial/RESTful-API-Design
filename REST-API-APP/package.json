@@ -4,8 +4,7 @@
   "description": "REST API for Service Provider.",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js"
+    "start": "nodemon app.js"
   },
   "author": "Arnel Imperial",
   "license": "ISC",
