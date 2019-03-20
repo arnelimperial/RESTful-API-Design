@@ -1,0 +1,48 @@
+[
+    {
+        "_id":"5c8fc3196363232b60296d8f",
+        "testName":"Heterotrophic Count",
+        "testMethod":"SimPlate",
+        "fieldOfTesting":"Microbiology",
+        "sampleType":"Water",
+        "testFee":30.45,
+        "updatedAt":"2019-03-18T16:11:05.516Z",
+        "createdAt":"2019-03-18T16:11:05.516Z",
+        "__v":0
+    },
+    {
+        "_id":"5c8fcda8e5c81032367d7320",
+        "testName":"Coliform P/A",
+        "testMethod":"SM 9223B: Enzyme Substrate Coliform Test",
+        "fieldOfTesting":"Microbiology",
+        "sampleType":"Water",
+        "testFee":45.46,
+        "updatedAt":"2019-03-18T16:56:08.236Z",
+        "createdAt":"2019-03-18T16:56:08.236Z",
+        "__v":0
+    },
+    {
+        "_id":"5c8fce9a8fa9da33c3500945",
+        "testName":"E.coli P/A",
+        "testMethod":"Colitag",
+        "fieldOfTesting":"Microbiology",
+        "sampleType":"Water",
+        "testFee":53.22,
+        "updatedAt":"2019-03-18T17:00:10.280Z",
+        "createdAt":"2019-03-18T17:00:10.280Z",
+        "__v":0
+    },
+    {
+        "_id":"5c8fd0d48fa9da33c3500946",
+        "testName":"Enumeration of Coliform",
+        "testMethod":"SM 9223B: Colilert/Quanti-Tray",
+        "fieldOfTesting":"Microbiology",
+        "sampleType":"Water and Wastewater",
+        "testFee":53.22,
+        "updatedAt":"2019-03-18T17:09:40.929Z",
+        "createdAt":"2019-03-18T17:09:40.929Z",
+        "__v":0
+    }
+
+]
+        

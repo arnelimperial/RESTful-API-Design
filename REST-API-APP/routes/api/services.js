@@ -29,6 +29,40 @@ module.exports = server => {
 
         }
     });
+
+    server.get('/api/services/fees/:testFee', async (req, res, next)=>{
+        try{
+            var service = await Service.find({testFee:req.params.testFee});
+            res.send(service);
+        
+            next();
+
+        }catch(err){
+            return next(new errors.ResourceNotFoundError(`There is no service with the id of ${req.params.testName}`));
+
+        }
+    });
+
+    server.get('/api/services/tests/:testName', async (req, res, next)=>{
+        try{
+            var service = await Service.findOne({testName:req.params.testName});
+            res.send(service);
+        
+            next();
+
+        }catch(err){
+            return next(new errors.ResourceNotFoundError(`There is no service with the id of ${req.params.testName}`));
+
+        }
+    });
+
+    
+
+    
+
+
+
+    
    
 
     //Add Services

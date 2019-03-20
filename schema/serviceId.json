@@ -1,0 +1,17 @@
+{
+  "_id": {
+      "$oid": "5c8fdc168fa9da33c3500959"
+  },
+  "testName": "Arsenic",
+  "testMethod": "SM 200.7",
+  "fieldOfTesting": "Environmental Toxicology",
+  "sampleType": "Wastewater",
+  "testFee": 94.44,
+  "updatedAt": {
+      "$date": "2019-03-18T17:57:42.486Z"
+  },
+  "createdAt": {
+      "$date": "2019-03-18T17:57:42.486Z"
+  },
+  "__v": 0
+}

@@ -41,8 +41,13 @@ var db = mongoose.connection;
 
 db.once('open', () => {
     //require('./routes/services')(server);
-    //require('./routes/users')(server);
+    require('./routes/api/tests')(server);
     require('./routes/api/users')(server);
     require('./routes/api/services')(server);
     console.log(`Server started on port ${config.PORT}`);
-  });
+});
+
+
+// server.get('/api/*', // don't forget the `/*`
+//      restify.plugins.serveStaticFiles('./public')
+// );
