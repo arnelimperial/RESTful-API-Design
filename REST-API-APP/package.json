@@ -4,7 +4,7 @@
   "description": "REST API for Service Provider.",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon ./bin/dev"
   },
   "author": "Arnel Imperial",
   "license": "ISC",
@@ -19,6 +19,7 @@
     "restify-jwt-community": "^1.0.11"
   },
   "devDependencies": {
+    "dotenv": "^7.0.0",
     "nodemon": "^1.18.10"
   }
 }

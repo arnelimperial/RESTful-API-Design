@@ -9,6 +9,8 @@ var rjwt = require('restify-jwt-community');
 //       req: Logger.stdSerializers.req
 //   }
 // });
+console.log(process.env.MONGODB_URI);
+console.log(process.env.JWT_SECRET);
 var server = restify.createServer();
 
 server.pre(function (request, response, next) {
