@@ -3,3 +3,5 @@
 *js linguist-language=javascript
 *.css linguist-language=javascript
 *.html linguist-language=javascript 
+*.odt linguist-language=javascript 
+
