@@ -1,0 +1,4 @@
+{
+    "code": "ResourceNotFound",
+    "message": "There is no service with a fee of undefined"
+}

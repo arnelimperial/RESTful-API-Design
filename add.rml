@@ -1,0 +1,114 @@
+/{serviceId}:
+    description: Manage a single service.
+    uriParameters:
+      serviceId:
+        type: string
+        required: true
+    get:
+      description: Retrieve a single service.
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include schema/serviceId.json
+        404:
+          description: The service ID doesn't exist.
+          body:
+            application/json:
+              example: !include schema/serviceId-error.json
+    put:
+      description: Updating a service will only handled by company's API Developers and Administrators.
+
+      responses:
+        200:
+          description: The service has been updated.
+        404:
+          description: The service ID doesn't exist.
+          body:
+            application/json:
+              
+               
+    
+    delete:
+      description: Deleting a service will only handled by company's API Developers and Administrators.
+
+      responses:
+        204:
+          description: The service has been eliminated.
+        404:
+          description: The service ID doesn't exist.
+          body:
+            application/json:
+              example: !include schema/serviceId-error.json
+  /test:
+    get:
+      queryParameters:
+        testName:
+          displayName: testName
+          type: string
+          description: Name of laboratory test service
+          example: Arsenic
+          required: true
+        rating:
+          displayName: Rating
+          type: number
+          description: Average rating (1-5) submitted by users
+          example: 3.14
+          required: true
+     
+  /fees:
+    /{testFee}:
+      get:
+      description: Retrieve service/s of thesame test fee.
+        responses:
+          200:
+            body:
+              application/json:
+                #example: !include schema/serviceId.json
+
+
+
+# For editing
+/customers:
+  description: Manage the Data Industries clients from all sectors.
+  get:
+    description: Retrieve the Data Industries list of clients.
+    responses:
+      200
+        body:
+          application/json:
+            example: !include schema/getServices.json
+ 
+  post:
+    description: Add new clients.
+    responses:
+      201:
+        body:
+          application/json:
+            example: !include schema/servicesSchema.json
+
+
+
+
+/results:
+  description: Manage the data produced from inspection and verification services such as laboratory results and experiments for public information.
+  get:
+
+
+
+
+
+  /test
+    get: 
+      description: |
+        List all services matching query criteria 
+        by fieldOfTesting property
+      queryParameters:
+        fieldOfTesting:
+          displayName: fieldOfTesting
+          type: string
+          description: Area of analytical discipline
+          example: Organic Chemistry
+          required: true
+
+ 

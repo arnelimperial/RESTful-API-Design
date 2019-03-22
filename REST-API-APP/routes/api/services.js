@@ -30,28 +30,55 @@ module.exports = server => {
         }
     });
 
-    server.get('/api/services/fees/:testFee', async (req, res, next)=>{
+    server.get('/api/services/fee', async (req, res, next)=>{
         try{
-            var service = await Service.find({testFee:req.params.testFee});
+            let param = req.query.testFee;
+            var service = await Service.find({ testFee:param });
+            if(service.length === 0){
+                return next(new errors.ResourceNotFoundError(`There is no service with a fee of ${req.query.testFee}`));
+            }
             res.send(service);
-        
             next();
 
+            
+                
         }catch(err){
-            return next(new errors.ResourceNotFoundError(`There is no service with the id of ${req.params.testName}`));
+            return next(new errors.ResourceNotFoundError(`There is no service with a fee of ${req.query.testFee}`));
 
         }
     });
 
-    server.get('/api/services/tests/:testName', async (req, res, next)=>{
-        try{
-            var service = await Service.findOne({testName:req.params.testName});
-            res.send(service);
+    server.get('/api/services/test/:fieldOfTesting', async (req, res, next)=>{
+
+        // try{
+        //     //var param1=req.query.testName;
         
-            next();
+        //     var service = await Service.find({fieldOfTesting:req.query.fieldOfTesting});
+        //     if(service === NULL){
+
+        //         return next(new errors.ResourceNotFoundError(`There is no services in the field of ${req.query.fieldOfTesting}`));
+        //     }else{
+        //         res.send(service);
+        //         console.log(service);
+
+        //     }
+        //     next();
+
+        // }catch(err){
+        //     return next(new errors.ResourceNotFoundError(`There is no services in the field of ${req.query.fieldOfTesting}`));
+        // }
+        try{
+            var service = await Service.find({fieldOfTesting:req.params.fieldOfTesting});
+            if(service.length === 0){
+                return next(new errors.ResourceNotFoundError(`There is no service in the field ${req.params.fieldOfTesting}`));
+
+            }else{
+                res.send(service);
+                next();
+            }
 
         }catch(err){
-            return next(new errors.ResourceNotFoundError(`There is no service with the id of ${req.params.testName}`));
+            return next(new errors.ResourceNotFoundError(`There is no service in the ${req.params.fieldOfTesting}`));
 
         }
     });

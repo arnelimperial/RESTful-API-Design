@@ -3,17 +3,13 @@ var mongoose = require('mongoose');
 var Logger = require('bunyan');
 var config = require('./config');
 var rjwt = require('restify-jwt-community');
-var log = new Logger.createLogger({
-  name: 'REST-API-APP',
-  serializers: {
-      req: Logger.stdSerializers.req
-  }
-});
-var server = restify.createServer({
-  name: 'REST-API-APP',
-  version: '1.0.0',
-  log: log
-});
+// var log = new Logger.createLogger({
+//   name: 'REST-API-APP',
+//   serializers: {
+//       req: Logger.stdSerializers.req
+//   }
+// });
+var server = restify.createServer();
 
 server.pre(function (request, response, next) {
   request.log.info({ req: request }, 'REQUEST');
@@ -34,6 +30,10 @@ server.listen(config.PORT, () => {
       { useNewUrlParser: true }
     );
   });
+
+
+  server.use(restify.plugins.queryParser());
+  
   
   
 
@@ -48,6 +48,5 @@ db.once('open', () => {
 });
 
 
-// server.get('/api/*', // don't forget the `/*`
-//      restify.plugins.serveStaticFiles('./public')
-// );
+server.get('/api', restify.plugins.serveStaticFiles('./public/api')
+);

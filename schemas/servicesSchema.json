@@ -2,23 +2,22 @@
   
     "testName": {
     "type": "String",
-    "required": "true",
-    "trim": "true"
+    "required": "true"
   },
   "testMethod": {
     "type": "String",
-    "required": "true",
-    "trim": "true"
+    "required": "true"
+
   },
   "fieldOfTesting": {
     "type": "String",
-    "required": "true",
-    "trim": "true"
+    "required": "true"
+  
   },
   "sampleType": {
     "type": "String",
-    "required": "true",
-    "trim": "true"
+    "required": "true"
+
   },
   "testFee": {
     "type": "Number",

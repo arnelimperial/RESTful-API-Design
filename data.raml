@@ -2,66 +2,79 @@
 ---
 title: Data Industries
 version: v1
-baseUri: http://data.dataindustries/api
+baseUri: https://dataindustries.heroku.com/api
 protocols: [ HTTPS ]
 mediaType: [ application/json ]
 
-#raml2html dataindustries-api.raml > dataindustries-api.html
+types:
+
+  Services: !include types/Data-Services.raml
+  service: !include types/data-service.raml
+  fee: !include types/data-fee.raml
 
 /services:
-  description: Manage the Data Industries services for business clients. Services includes inspection and verification of environmental matrix and certification of product standards.
+  description: |
+    Manage the Data Industries services for business clients. 
+    Services includes inspection and verification of 
+    environmental matrix and certification of product testing.
   get:
-    description: Retrieve the list of services of Data Industries.
+    description: Retrieve the list of services
     responses:
       200:
         body:
           application/json:
-            example: !include schema/getServices.json
+            example: !include examples/allServices.json
 
   post:
-    description: Create new service handled by company's API Developers and Administrators only.
+    description: Forming new service entity.
+    body:
+      application/json:
+        type: Services
+        example: !include examples/createService.json
+  
     responses:
       201:
+        description: Service created successfully
+      500:
         body:
           application/json:
-            example: !include schema/servicesSchema.json
+            example: !include examples/createServiceError.json
 
-
-  /{_id}:
-    description: Manage a single service.
-    uriParameters:
-      serviceId:
-        type: string
-        required: true
+     
+  /{id}:
     get:
-      description: Retrieve a single service.
+      description: Retrieve a single service by Id
       responses:
         200:
           body:
             application/json:
-              example: !include schema/serviceId.json
+              example: !include examples/serviceId.json
         404:
-          description: The service ID doesn't exist.
+          description: The service ID doesn't exist
           body:
             application/json:
-              example: !include schema/serviceId-error.json
+              example: !include examples/serviceId-error.json
     put:
-      description: Updating a service will only handled by company's API Developers and Administrators.
-
+      description: Updating service entry
+      body:
+        application/json:
+          type: service
+          example: |
+            {
+              "fieldOfTesting": "Microbiology",
+              "testFee": 100.55
+            }
       responses:
         200:
-          description: The service has been updated.
+          description: The service has been updated
+          
         404:
           description: The service ID doesn't exist.
           body:
             application/json:
-              example: !include schema/serviceId-error.json
-              
-
-    
+              example: !include examples/serviceId-error.json
     delete:
-      description: Deleting a service will only handled by company's API Developers and Administrators.
-
+      description: Deletion of service by Id
       responses:
         204:
           description: The service has been eliminated.
@@ -69,53 +82,52 @@ mediaType: [ application/json ]
           description: The service ID doesn't exist.
           body:
             application/json:
-              example: !include schema/serviceId-error.json
-  /tests:
-    /{testName}:
-      get:
-      description: Retrieve single service by test name.
-        responses:
-          200:
-            body:
-              application/json:
-                #example: !include schema/getServices.json
-  /fees:
-    /{testFee}:
-      get:
-      description: Retrieve service/s of thesame test fee.
-        responses:
-          200:
-            body:
-              application/json:
-                #example: !include schema/getServices.json
+              example: !include examples/serviceId-error.json
+    
+
+  /fee:
+    get:
+      description: Listing of services of similar testing fee
+      querParameters:
+        testFee: integer
+      body:
+        application/json:
+          type: fee
+          example: 63.34
+        
+      responses:
+        200:
+          body:
+            application/json:
+              type: object
+              example: !include examples/inorganicChem.json
+        404:
+          description: No service for the fee provided
+          body:
+            application/json:
+              example: !include examples/undefined-fee.json
+  
+
+  /test/{category}:
+    get:
+      description: Listing of service of similar field of testing
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include examples/similar-fee.json
+        400:
+          body:
+            application/json:
+              type:
+              example: !include examples/no-serviceFound.json
 
 
 
-# For editing
-/customers:
-  description: Manage the Data Industries clients from all sectors.
-  get:
-    description: Retrieve the Data Industries list of clients.
-    responses:
-      200
-        body:
-          application/json:
-            example: !include schema/getServices.json
- 
-  post:
-    description: Add new clients.
-    responses:
-      201:
-        body:
-          application/json:
-            example: !include schema/servicesSchema.json
+
+   
+    
+    
 
 
-
-
-/results:
-  description: Manage the data produced from inspection and verification services such as laboratory results and experiments for public information.
-  get:
-
-  /{samples}:
-   /{get}
+  

@@ -1,0 +1,24 @@
+{
+  
+    "testName": {
+    "type": "String"
+  },
+  "testMethod": {
+    "type": "String"
+
+  },
+  "fieldOfTesting": {
+    "type": "String"
+  
+  },
+  "sampleType": {
+    "type": "String"
+
+  },
+  "testFee": {
+    "type": "Number"
+  }
+
+
+  
+}

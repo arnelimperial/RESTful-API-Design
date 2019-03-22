@@ -1,0 +1,35 @@
+[
+    {
+        "_id": "5c8fd3388fa9da33c3500947",
+        "testName": "Calcium",
+        "testMethod": "EPA 200.7",
+        "fieldOfTesting": "Inorganic Chemistry",
+        "sampleType": "Water",
+        "testFee": 63.34,
+        "updatedAt": "2019-03-18T17:19:52.459Z",
+        "createdAt": "2019-03-18T17:19:52.459Z",
+        "__v": 0
+    },
+    {
+        "_id": "5c8fd3748fa9da33c3500948",
+        "testName": "Magnesium",
+        "testMethod": "EPA 200.7",
+        "fieldOfTesting": "Inorganic Chemistry",
+        "sampleType": "Water",
+        "testFee": 63.34,
+        "updatedAt": "2019-03-18T17:20:52.728Z",
+        "createdAt": "2019-03-18T17:20:52.728Z",
+        "__v": 0
+    },
+    {
+        "_id": "5c8fd48e8fa9da33c350094b",
+        "testName": "Sodium",
+        "testMethod": "EPA 200.7",
+        "fieldOfTesting": "Inorganic Chemistry",
+        "sampleType": "Water",
+        "testFee": 63.34,
+        "updatedAt": "2019-03-18T17:25:34.584Z",
+        "createdAt": "2019-03-18T17:25:34.584Z",
+        "__v": 0
+    }
+]

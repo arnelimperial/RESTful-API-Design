@@ -1,0 +1,112 @@
+[
+    {
+        "_id": "5c8fd3388fa9da33c3500947",
+        "testName": "Calcium",
+        "testMethod": "EPA 200.7",
+        "fieldOfTesting": "Inorganic Chemistry",
+        "sampleType": "Water",
+        "testFee": 63.34,
+        "updatedAt": "2019-03-18T17:19:52.459Z",
+        "createdAt": "2019-03-18T17:19:52.459Z",
+        "__v": 0
+    },
+    {
+        "_id": "5c8fd3748fa9da33c3500948",
+        "testName": "Magnesium",
+        "testMethod": "EPA 200.7",
+        "fieldOfTesting": "Inorganic Chemistry",
+        "sampleType": "Water",
+        "testFee": 63.34,
+        "updatedAt": "2019-03-18T17:20:52.728Z",
+        "createdAt": "2019-03-18T17:20:52.728Z",
+        "__v": 0
+    },
+    {
+        "_id": "5c8fd3e38fa9da33c3500949",
+        "testName": "Chloride",
+        "testMethod": "EPA 300.0",
+        "fieldOfTesting": "Inorganic Chemistry",
+        "sampleType": "Water",
+        "testFee": 58.66,
+        "updatedAt": "2019-03-18T17:22:43.558Z",
+        "createdAt": "2019-03-18T17:22:43.558Z",
+        "__v": 0
+    },
+    {
+        "_id": "5c8fd42d8fa9da33c350094a",
+        "testName": "Fluoride",
+        "testMethod": "EPA 300.0",
+        "fieldOfTesting": "Inorganic Chemistry",
+        "sampleType": "Water",
+        "testFee": 58.66,
+        "updatedAt": "2019-03-18T17:23:57.536Z",
+        "createdAt": "2019-03-18T17:23:57.536Z",
+        "__v": 0
+    },
+    {
+        "_id": "5c8fd48e8fa9da33c350094b",
+        "testName": "Sodium",
+        "testMethod": "EPA 200.7",
+        "fieldOfTesting": "Inorganic Chemistry",
+        "sampleType": "Water",
+        "testFee": 63.34,
+        "updatedAt": "2019-03-18T17:25:34.584Z",
+        "createdAt": "2019-03-18T17:25:34.584Z",
+        "__v": 0
+    },
+    {
+        "_id": "5c8fd4dc8fa9da33c350094c",
+        "testName": "Silica",
+        "testMethod": "SM 3120B-1999",
+        "fieldOfTesting": "Inorganic Chemistry",
+        "sampleType": "Water",
+        "testFee": 71.11,
+        "updatedAt": "2019-03-18T17:40:00.180Z",
+        "createdAt": "2019-03-18T17:26:52.956Z",
+        "__v": 0
+    },
+    {
+        "_id": "5c8fd5968fa9da33c350094d",
+        "testName": "Chlorine, Residual",
+        "testMethod": "SM4500-Cl G-2000",
+        "fieldOfTesting": "Inorganic Chemistry",
+        "sampleType": "Water",
+        "testFee": 72.05,
+        "updatedAt": "2019-03-18T17:29:58.079Z",
+        "createdAt": "2019-03-18T17:29:58.079Z",
+        "__v": 0
+    },
+    {
+        "_id": "5c8fd9738fa9da33c350094e",
+        "testName": "Nitrate (as N)",
+        "testMethod": "EPA 300.0",
+        "fieldOfTesting": "Inorganic Chemistry",
+        "sampleType": "Water",
+        "testFee": 78.22,
+        "updatedAt": "2019-03-18T17:46:27.376Z",
+        "createdAt": "2019-03-18T17:46:27.376Z",
+        "__v": 0
+    },
+    {
+        "_id": "5c8fd97f8fa9da33c350094f",
+        "testName": "Nitrite (as N)",
+        "testMethod": "EPA 300.0",
+        "fieldOfTesting": "Inorganic Chemistry",
+        "sampleType": "Water",
+        "testFee": 78.22,
+        "updatedAt": "2019-03-18T17:46:39.573Z",
+        "createdAt": "2019-03-18T17:46:39.573Z",
+        "__v": 0
+    },
+    {
+        "_id": "5c8fd9ad8fa9da33c3500950",
+        "testName": "Sulfate",
+        "testMethod": "EPA 300.0",
+        "fieldOfTesting": "Inorganic Chemistry",
+        "sampleType": "Water",
+        "testFee": 78.22,
+        "updatedAt": "2019-03-18T17:47:25.582Z",
+        "createdAt": "2019-03-18T17:47:25.582Z",
+        "__v": 0
+    }
+]
