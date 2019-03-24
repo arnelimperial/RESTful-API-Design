@@ -1,18 +1,40 @@
-var restify = require('restify');
-var mongoose = require('mongoose');
-var Logger = require('bunyan');
-var config = require('./config');
-var rjwt = require('restify-jwt-community');
+'use strict'
+const restify = require('restify');
+const mongoose = require('mongoose');
+const Logger = require('morgan');
+const config = require('./config');
+const rjwt = require('restify-jwt-community');
+const corsMiddleware = require('restify-cors-middleware');
+//require('dotenv/config');
+require('restify').plugins;
+
 // var log = new Logger.createLogger({
 //   name: 'REST-API-APP',
 //   serializers: {
 //       req: Logger.stdSerializers.req
 //   }
 // });
-console.log(process.env.MONGODB_URI);
-console.log(process.env.JWT_SECRET);
-var server = restify.createServer();
 
+
+
+//CORS
+const server = restify.createServer();
+const cors = corsMiddleware({
+  preflightMaxAge: 5,
+  origins: ['http://localhost:8080', 'https://*.herokuapp.com'],
+  allowHeaders: ['Authorization'],
+  exposeHeaders: ['Authorization']
+
+});
+server.pre(cors.preflight);
+server.use(cors.actual);
+
+
+
+
+
+//console.log(process.env.MONGODB_URI);
+//console.log(process.env.JWT_SECRET);
 server.pre(function (request, response, next) {
   request.log.info({ req: request }, 'REQUEST');
   next();
@@ -20,7 +42,11 @@ server.pre(function (request, response, next) {
 
 
 // Middleware
+//server.use(restify.acceptParser(server.acceptable));
+server.use(Logger('dev'));
 server.use(restify.plugins.bodyParser());
+server.use(restify.plugins.queryParser());
+
 // Protect All Routes except /auth. To specified protected route insert the middleware:rjwt({ secret: config.JWT_SECRET })
  //server.use(rjwt({ secret: config.JWT_SECRET }).unless({ path: ['/auth'] }));
 
@@ -33,22 +59,16 @@ server.listen(config.PORT, () => {
     );
   });
 
-
-  server.use(restify.plugins.queryParser());
-  
-  
-  
-
-var db = mongoose.connection;
+const db = mongoose.connection;
 
 db.once('open', () => {
     //require('./routes/services')(server);
-    require('./routes/api/tests')(server);
+    //require('./routes/api/results')(server);
     require('./routes/api/users')(server);
     require('./routes/api/services')(server);
     console.log(`Server started on port ${config.PORT}`);
 });
 
 
-server.get('/api', restify.plugins.serveStaticFiles('./public/api')
-);
+server.get('/api', restify.plugins.serveStaticFiles('./public/api'));
+server.get('/', restify.plugins.serveStaticFiles('./public'));

@@ -4,17 +4,22 @@
   "description": "REST API for Service Provider.",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon ./bin/dev"
+    "start": "nodemon ./bin/dev",
+    "dev": "nodemon ./bin/dev"
   },
   "author": "Arnel Imperial",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "bunyan": "^1.8.12",
+    "joi": "^14.3.1",
+    "joigoose": "^4.0.4",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.4.19",
     "mongoose-timestamp": "^0.6.0",
+    "morgan": "^1.9.1",
     "restify": "^8.1.1",
+    "restify-cors-middleware": "^1.1.1",
     "restify-errors": "^7.0.0",
     "restify-jwt-community": "^1.0.11"
   },

@@ -1,7 +1,9 @@
-var errors = require('restify-errors');
-var rjwt = require('restify-jwt-community');
-var Service = require('../../models/Services');
-var config = require('../../config');
+'use strict';
+const errors = require('restify-errors');
+const rjwt = require('restify-jwt-community');
+const Service = require('../../models/Services');
+const config = require('../../config');
+
 
 module.exports = server => {
     //GET Service listing
@@ -9,8 +11,8 @@ module.exports = server => {
     
     server.get('/api/services', async(req, res, next)=>{
         try {
-            var service = await Service.find({});
-            res.send(service);
+            let service = await Service.find({});
+            res.send({ Data_Industries_Services: service });
             next();
           } catch (err) {
             return next(new errors.InvalidContentError(err));
@@ -20,8 +22,8 @@ module.exports = server => {
     //GET Services by ID
     server.get('/api/services/:id', async (req, res, next)=>{
         try{
-            var service = await Service.findById(req.params.id);
-            res.send(service);
+            let service = await Service.findById(req.params.id);
+            res.send({ Data_Industries_Service: service });
             next();
 
         }catch(err){
@@ -38,6 +40,27 @@ module.exports = server => {
                 return next(new errors.ResourceNotFoundError(`There is no service with a fee of ${req.query.testFee}`));
             }
             res.send(service);
+            next();
+
+            
+                
+        }catch(err){
+            return next(new errors.ResourceNotFoundError(`There is no service with a fee of ${req.query.testFee}`));
+
+        }
+    });
+
+
+    server.get('/api/services/sample', async (req, res, next)=>{
+        try{
+            let param = req.query.testName;
+            var service = await Service.findOne({testName: param}).select('testFee -_id');
+            if(service.length === 0){
+                return next(new errors.ResourceNotFoundError(`There is no service with a fee of ${req.query.testFee}`));
+            }
+            
+            res.send(param + ': ' + service);
+            console.log(service);
             next();
 
             

@@ -30,6 +30,19 @@ module.exports = server => {
       });
     });
   });
+  //Delete Users
+  server.del('/api/users/:id', async (req, res, next) =>{
+
+    try{
+      let users = await User.findOneAndDelete({_id: req.params.id});
+      res.send(204);
+      next();
+
+  }catch(err){
+      return next(new errors.ResourceNotFoundError(`There is no user with the id of ${req.params.id}`));
+  }
+
+  });
 
   // Auth User
   server.post('/api/auth', async (req, res, next) => {
