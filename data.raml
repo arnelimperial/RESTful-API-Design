@@ -6,12 +6,32 @@ baseUri: https://dataindustries.heroku.com/api
 protocols: [ HTTPS ]
 mediaType: [ application/json ]
 
+securitySchemes:
+  basicAuth:
+    description: Each request must contain the headers necessary for
+                 basic authentication
+    type: Basic Authentication
+    describedBy:
+      headers:
+        Authorization:
+          description: Used to send the Base64-encoded "username:password"
+                       credentials
+          type: string
+      responses:
+        401:
+          description: |
+            Unauthorized. Either the provided username and password
+            combination is invalid, or the user is not allowed to access
+            the content provided by the requested URL.
+
 types:
 
   Services: !include types/Data-Services.raml
   service: !include types/data-service.raml
   Partners: !include types/Data-Partners.raml
   partner: !include types/data-partner.raml
+
+
 
 /services:
   description: |
@@ -37,6 +57,7 @@ types:
       201:
         description: Service created.
       500:
+        description: Error occurs in posting the entry. 
         body:
           application/json:
             example: !include examples/createServiceError.json
@@ -148,7 +169,7 @@ types:
 
     responses:
       201:
-        description: Custome information has been recorded
+        description: Customer information has been recorded
       500:
         body:
           application/json:
@@ -198,4 +219,164 @@ types:
 
 
 /results:
+  description: |
+    Manage Data Industries testing, inspection, auditing and verfication 
+    results
+  get:
+    description: Retrieve lising of laboratory results from all clients
+    responses:
+      200:
+        description: List retrieved
+      400:
+        description: Error in retrieval
+
+  post:
+    description: Recorded results from single client.
+    body:
+      application/json:
+
+    responses:
+      201:
+        description: Laboratory results has been recorded
+      500:
+        description: Internal server error.
+          body:
+           application/json:
+              
+
+     
+  /{resultId}:
+    get:
+      description: Retrieve result by Id
+      responses:
+        200:
+          description: Result informatiomed retrieved
+          body:
+            application/json:
+        
+        404:
+          description: Error in entering the result Id.
+          body:
+            application/json:
+          
+    put:
+      description: Updating result information
+      body:
+        application/json:
+          
+      responses:
+        200:
+          description: Information about the result has been updated
+          
+        404:
+          description: The result ID doesn't exist.
+          body:
+            application/json:
+            
+    delete:
+      description: Remove results information from the records.
+      responses:
+        204:
+          description: The result information has been removed.
+        404:
+          description: The result ID doesn't exist.
+          body:
+            application/json:
+
+
+  /client:
+    get:
+      description: Retrieve data about specific test.
+      queryParameters:
+        testFee: number
+      body
+        application/x-www-form-urlencoded:
+        example: 63.34
+      
+      responses:
+        200:
+          description: Information retrieved.
+          body:
+            application/json:
+            
+        404:
+          description: Error in querying. Check for misspelling.
+          body:
+            application/json:
+
+
+
+/users:
+  description: |
+    Manage Data Industries API consumers as users.
+  get:
+    description: Retrieve the list of users
+    responses:
+      200:
+        description: Retrieve the list
+      400:
+        description: Error in retrieval
+
+  post:
+    description: Create users's information. Basic 
+    body:
+      application/json:
+        type: Partners
+
+    responses:
+      201:
+        description: Customer information has been recorded
+      500:
+        body:
+          application/json:
+            example: !include examples/createServiceError.json
+
+     
+  /{customerId}:
+    get:
+      description: Retrieve customer by Id
+      responses:
+        200:
+          description: Customer informatiomed retrieved
+          body:
+            application/json:
+        
+        404:
+          description: The service ID doesn't exist
+          body:
+            application/json:
+          
+    put:
+      description: Updating customer information
+      body:
+        application/json:
+          type: partner
+          example: !include examples/update-customer.json
+          
+      responses:
+        200:
+          description: Customer information has been updated
+          
+        404:
+          description: The customer ID doesn't exist.
+          body:
+            application/json:
+            
+    delete:
+      description: Eviction of customer from the records
+      responses:
+        204:
+          description: The customer information has been removed.
+        404:
+          description: The customer ID doesn't exist.
+          body:
+            application/json:
+
+            
+    
+
+
+
+
+
     

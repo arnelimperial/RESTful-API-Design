@@ -6,7 +6,10 @@ const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[
 
 const joiSchema2 = joi.object().keys({
   email: joi.string().required().lowercase().email().regex(re).trim(),
-  password: joi.string().required().min(8).trim()
+  password: joi.string().required().min(8).trim(),
+  name: joi.string().required().min(2).trim(),
+  job: joi.string().required().min(2).trim(),
+  company: joi.string().required().min(3).trim(),
 });
 
 
