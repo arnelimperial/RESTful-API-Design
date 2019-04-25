@@ -23,6 +23,8 @@ npm install
 npm run devserver
 ```
 
+### License
+zlib
 
 ### Coded by
 

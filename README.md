@@ -12,6 +12,10 @@
 
 ---
 
+
+### License
+zlib
+
 ### Coded by:
 [Arnel Gonzales Imperial](https://arnelimperial.bitbucket.io/)
 

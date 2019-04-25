@@ -7,7 +7,7 @@ const config = require('../../config');
 
 module.exports = server => {
   // Register User
-  server.post('/api/register', (req, res, next) => {
+  server.post('/api/register', async (req, res, next) => {
     var { email, password, name, job, company } = req.body;
 
     const user = new User({
